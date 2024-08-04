@@ -23,7 +23,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
             "Unable to initialize auth"
         );
     }
-    const onRedirectCallBack = (appState?:AppState,user?:User) => { 
+    const onRedirectCallBack = () => { 
         //onRedirectCallBack function  runs after a successful login
         //AppState and User which help in typing the callback function.
         //Redirect the user to the /auth-callback route after a successful login. 
