@@ -5,11 +5,17 @@ import { Navigate, Outlet } from "react-router-dom";
 If authenticated, it renders the requested route; otherwise, it redirects to the home page. */}
 
 const ProtectedRoute = () => {
-    const {isAuthenticated} = useAuth0();
+    const {isAuthenticated,isLoading} = useAuth0();
+  if(isLoading){
+    return null;
+  }
 
-  return (
-    isAuthenticated ? (<Outlet />) : (<Navigate to="/" replace/>)
-  )
+  if(isAuthenticated){
+    return <Outlet />;
+  }
+
+  return <Navigate to="/" replace/>
+
 };
 
-export default ProtectedRoute
+export default ProtectedRoute;
